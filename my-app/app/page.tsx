@@ -1,4 +1,4 @@
-import MessageForm from "../message-form"
+import MessageForm from "./components/message-form";
 
 export default function Page() {
   return (
