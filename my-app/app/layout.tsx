@@ -2,8 +2,9 @@ import type { Metadata } from 'next'
 import './globals.css'
 
 export const metadata: Metadata = {
-  title: 'v0 App',
-  description: 'Created with v0',
+  title: 'メッセージフォーム',
+  description: 'PRISM.宛てのメッセージフォーム',
+  manifest: "/site.webmanifest",
   generator: 'v0.dev',
 }
 
