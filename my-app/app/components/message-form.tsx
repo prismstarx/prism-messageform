@@ -113,18 +113,19 @@ export default function MessageForm() {
   // -----------------------
   const handleSubmit = async () => {
     // データエンコード
-    const formData = new URLSearchParams();
-    formData.append(GOOGLE_FORM_EMAIL_ENTRY_ID, "1");
-    formData.append(GOOGLE_FORM_NAME_ENTRY_ID, "2");
-    formData.append(GOOGLE_FORM_MESSAGE_ENTRY_ID, "3");
-    console.log("送信データ:", formData.toString());
- 
+    const formDataEncoded = new URLSearchParams();
+    formDataEncoded.append(GOOGLE_FORM_NAME_ENTRY_ID, formData.name.toString());
+    formDataEncoded.append(GOOGLE_FORM_EMAIL_ENTRY_ID, formData.email.toString());
+    formDataEncoded.append(GOOGLE_FORM_MESSAGE_ENTRY_ID, formData.message.toString());
+
+    console.log("送信データ:", formDataEncoded.toString());
+
     try {
       setIsSubmitting(true);
       // fetch APIを使ってGoogleフォームにPOSTリクエストを送信
       const response = await fetch(GOOGLE_FORM_SUBMIT_URL, {
         method: "POST",
-        body: formData.toString(),
+        body: formDataEncoded.toString(),
         headers: {
           "Content-Type": "application/x-www-form-urlencoded",
         },
@@ -134,7 +135,7 @@ export default function MessageForm() {
     } catch (error) {
       console.error("送信エラー:", error);
     } finally {
-      setIsSubmitting(false)
+      setIsSubmitting(false);
       setStep(3);
     }
   };
