@@ -115,8 +115,14 @@ export default function MessageForm() {
     // データエンコード
     const formDataEncoded = new URLSearchParams();
     formDataEncoded.append(GOOGLE_FORM_NAME_ENTRY_ID, formData.name.toString());
-    formDataEncoded.append(GOOGLE_FORM_EMAIL_ENTRY_ID, formData.email.toString());
-    formDataEncoded.append(GOOGLE_FORM_MESSAGE_ENTRY_ID, formData.message.toString());
+    formDataEncoded.append(
+      GOOGLE_FORM_EMAIL_ENTRY_ID,
+      formData.email.toString()
+    );
+    formDataEncoded.append(
+      GOOGLE_FORM_MESSAGE_ENTRY_ID,
+      formData.message.toString()
+    );
 
     console.log("送信データ:", formDataEncoded.toString());
 
@@ -175,9 +181,16 @@ export default function MessageForm() {
               <CardTitle className="text-3xl font-bold bg-gradient-to-r from-rose-600 via-pink-600 to-purple-600 bg-clip-text text-transparent mb-2">
                 MESSAGE FORM
               </CardTitle>
-              <CardDescription className="text-rose-500/70 text-sm">
+                <div className="mt-3 p-3 bg-white/50 rounded-xl">
+                  <CardDescription className="text-rose-500/70 text-xs">
+                    お返事が必要な場合はメールにてご連絡ください。
+                    <br />
+                    prismstarxxxx@gmail.com
+                  </CardDescription>
+                </div>
+              {/* <CardDescription className="text-rose-500/70 text-sm">
                 to PRISM. / なしこ
-              </CardDescription>
+              </CardDescription> */}
             </CardHeader>
             <CardContent className="p-8 space-y-6">
               <div className="space-y-3">
@@ -209,7 +222,7 @@ export default function MessageForm() {
                 />
               </div>
 
-              <div className="space-y-3">
+              {/* <div className="space-y-3">
                 <Label
                   htmlFor="email"
                   className="flex items-center gap-2 text-rose-700 font-medium ml-1"
@@ -237,7 +250,7 @@ export default function MessageForm() {
                   onChange={(e) => handleInputChange("email", e.target.value)}
                   className="border-2 border-rose-200 focus:border-rose-400 rounded-2xl py-3 px-4 bg-white/50 backdrop-blur-sm transition-all duration-200 focus:shadow-lg focus:shadow-rose-200/50"
                 />
-              </div>
+              </div> */}
 
               <div className="space-y-3">
                 <div className="flex items-center justify-between">
@@ -326,7 +339,7 @@ export default function MessageForm() {
                   </div>
                 </div>
 
-                <div className="p-3 bg-gradient-to-r from-white to-rose-50/50 border border-rose-100 rounded-xl shadow-sm">
+                {/* <div className="p-3 bg-gradient-to-r from-white to-rose-50/50 border border-rose-100 rounded-xl shadow-sm">
                   <div className="flex items-center justify-between">
                     <Label className="text-xs font-semibold text-rose-700">
                       EMAIL
@@ -335,7 +348,7 @@ export default function MessageForm() {
                       {formData.email || "未入力"}
                     </p>
                   </div>
-                </div>
+                </div> */}
 
                 <div className="p-3 bg-gradient-to-r from-white to-rose-50/50 border border-rose-100 rounded-xl shadow-sm">
                   <Label className="text-xs font-semibold text-rose-700">
